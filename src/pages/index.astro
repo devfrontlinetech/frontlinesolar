@@ -1,0 +1,96 @@
+---
+import '@/styles/globals.css';
+import Layout from '../layouts/Layout.astro';
+import Header from '@/components/Header.tsx';
+import Hero from '@/components/Hero.tsx';
+import SubsidyCalculator from '@/components/SubsidyCalculator.tsx';
+import ProductShowcase from '@/components/ProductShowcase.tsx';
+import WhyFrontline from '@/components/WhyFrontline.tsx';
+import Testimonials from '@/components/Testimonials.tsx';
+import Footer from '@/components/Footer.tsx';
+---
+
+<Layout
+  title="Solar Panel Installation in Karur | Frontline Solar — Best Solar Company in Tamil Nadu"
+  description="Frontline Solar is the leading solar panel installation company in Karur, Tamil Nadu. Get the best rooftop solar systems for homes, businesses & farms. PM Surya Ghar subsidy, TANGEDCO net-metering, N-Type TOPCon bifacial panels with 25-year warranty. Make in India, Aatmanirbhar Bharat certified."
+  keywords="solar panel installation Karur, solar energy company Karur Tamil Nadu, best solar dealer Karur, rooftop solar Karur, PM Surya Ghar subsidy Karur, solar net metering Karur TANGEDCO, solar panel price Karur, N-Type TOPCon bifacial panels Karur, commercial solar Karur, solar pump Karur, solar EPC Karur, Aatmanirbhar Bharat solar Tamil Nadu"
+  ratingValue="4.9"
+  reviewCount="1200"
+/>
+  <Header client:load />
+  <main>
+    <Hero client:load />
+    <SubsidyCalculator client:visible />
+    <ProductShowcase client:visible />
+    <WhyFrontline client:visible />
+    <Testimonials client:visible />
+
+    <!-- SEO Content Section: Keyword-rich, Karur-focused -->
+    <section class="relative py-20 md:py-28 bg-secondary/20 overflow-hidden" id="seo-content">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-display-md text-foreground mb-8">
+          Solar Panel Installation in <span class="text-gradient-solar">Karur, Tamil Nadu</span>
+        </h2>
+
+        <div class="prose prose-lg max-w-none text-muted-foreground space-y-6">
+          <p>
+            <strong class="text-foreground">Frontline Solar</strong> is the leading
+            <strong class="text-foreground">solar panel installation company in Karur</strong>,
+            Tamil Nadu. We provide premium <strong class="text-foreground">rooftop solar systems</strong>
+            for homes, businesses, and agricultural farms across Karur district and all of Tamil Nadu.
+            Our N-Type TOPCon bifacial solar panels are <strong class="text-foreground">Make in India</strong>
+            certified, ALMM-listed, and DCR-compliant — ensuring you get the maximum
+            <strong class="text-foreground">PM Surya Ghar subsidy</strong> and the best return on your solar investment.
+          </p>
+
+          <h3 class="text-xl font-bold text-foreground pt-4">Why Choose Frontline Solar in Karur?</h3>
+          <p>
+            As Karur's trusted <strong class="text-foreground">solar EPC company</strong>, we handle everything
+            from free site survey and structural design to <strong class="text-foreground">TANGEDCO net-metering</strong>
+            approval and system commissioning. Whether you need a <strong class="text-foreground">1kW residential
+            solar system in Karur</strong> or a <strong class="text-foreground">50kW commercial solar power plant
+            in Karur</strong>, our in-house engineering team delivers world-class installation within 7 days.
+          </p>
+
+          <h3 class="text-xl font-bold text-foreground pt-4">PM Surya Ghar Subsidy in Karur</h3>
+          <p>
+            Under the <strong class="text-foreground">PM Surya Ghar: Muft Bijli Yojana</strong>, residents of
+            Karur can receive up to <strong class="text-foreground">₹78,000 in central subsidy</strong> for
+            installing rooftop solar. Our subsidy calculator gives you an instant estimate of your recommended
+            system size, net cost after subsidy, payback period, and 25-year savings — all based on live
+            TANGEDCO tariff structures. Frontline Solar manages the entire subsidy application and
+            DISCOM inspection process for you.
+          </p>
+
+          <h3 class="text-xl font-bold text-foreground pt-4">Solar Services We Offer in Karur & Tamil Nadu</h3>
+          <ul class="space-y-2">
+            <li><strong class="text-foreground">Residential Rooftop Solar in Karur</strong> — 1kW to 10kW home solar systems with PM Surya Ghar subsidy</li>
+            <li><strong class="text-foreground">Commercial Solar Installation in Karur</strong> — 10kW to 1MW solar power plants for businesses and industries</li>
+            <li><strong class="text-foreground">Solar Water Pumps in Karur</strong> — Solar-powered irrigation pumps for Karur's agricultural community</li>
+            <li><strong class="text-foreground">N-Type TOPCon Bifacial Solar Panels in Karur</strong> — Highest efficiency panels with 25-year performance warranty</li>
+            <li><strong class="text-foreground">TANGEDCO Net-Metering in Karur</strong> — Complete approval processing and bi-monthly tariff offset setup</li>
+            <li><strong class="text-foreground">Lithium Battery Storage in Karur</strong> — LiFePO4 battery backup systems for uninterrupted power</li>
+          </ul>
+
+          <h3 class="text-xl font-bold text-foreground pt-4">Serving All of Tamil Nadu</h3>
+          <p>
+            While we are proudly based in <strong class="text-foreground">Karur</strong>, Frontline Solar serves
+            customers across Tamil Nadu — including Coimbatore, Madurai, Tiruppur, Salem, Erode, Namakkal,
+            Dindigul, Trichy, Chennai, and all districts. Our <strong class="text-foreground">Aatmanirbhar Bharat</strong>
+            mission drives us to bring energy independence to every home, business, and farm in Tamil Nadu with
+            world-class, domestically manufactured solar technology.
+          </p>
+
+          <h3 class="text-xl font-bold text-foreground pt-4">Get a Free Solar Quote in Karur Today</h3>
+          <p>
+            Ready to go solar? Contact Frontline Solar for a <strong class="text-foreground">free site survey
+            and customized solar proposal in Karur</strong>. Call us at +91 90000 00000 or message us on WhatsApp
+            for an instant quote. Join 1,200+ happy customers across Tamil Nadu who have saved millions with
+            Frontline Solar.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <Footer client:visible />
+  </main>

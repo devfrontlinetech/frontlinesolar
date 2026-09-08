@@ -1,0 +1,227 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+  ratingValue?: string;
+  reviewCount?: string;
+}
+
+const {
+  title,
+  description = "Frontline Solar — #1 solar panel installation company in Karur, Tamil Nadu. Best solar energy solutions for homes, businesses & farms. PM Surya Ghar subsidy, TANGEDCO net-metering, N-Type TOPCon bifacial panels. Make in India, Aatmanirbhar Bharat.",
+  keywords = "solar panel installation Karur, solar energy company Karur Tamil Nadu, best solar dealer Karur, rooftop solar Karur, PM Surya Ghar subsidy Karur, solar net metering Karur TANGEDCO, solar panel price Karur, N-Type TOPCon bifacial panels Karur, commercial solar Karur, solar pump Karur, Aatmanirbhar Bharat solar Tamil Nadu, solar subsidy calculator Tamil Nadu, ALMM DCR solar panels Karur, solar EPC Karur",
+  ratingValue,
+  reviewCount,
+} = Astro.props;
+
+const aggregateRating = ratingValue && reviewCount
+  ? {
+      "@type": "AggregateRating",
+      ratingValue,
+      reviewCount,
+      bestRating: "5",
+      worstRating: "1",
+    }
+  : undefined;
+
+const siteUrl = "https://frontlinesolar.in";
+const ogImage = `${siteUrl}/og-image.jpg`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0f1c" />
+    <meta name="author" content="Frontline Solar" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={siteUrl} />
+
+    <!-- Geo Tags for Karur, Tamil Nadu local SEO -->
+    <meta name="geo.region" content="IN-TN" />
+    <meta name="geo.placename" content="Karur, Tamil Nadu, India" />
+    <meta name="geo.position" content="10.9602;78.0825" />
+    <meta name="ICBM" content="10.9602, 78.0825" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Frontline Solar" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:locale:alternate" content="ta_IN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+
+    <!-- JSON-LD Structured Data: LocalBusiness for Karur -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SolarEnergyCompany",
+      "@id": `${siteUrl}/#organization`,
+      name: "Frontline Solar",
+      alternateName: "Frontline Solar Karur",
+      description: "Premium solar panel installation and energy solutions company in Karur, Tamil Nadu. Specializing in N-Type TOPCon bifacial panels, PM Surya Ghar subsidy processing, TANGEDCO net-metering, and Make in India DCR-compliant solar systems.",
+      url: siteUrl,
+      telephone: "+91-90000-00000",
+      email: "info@frontlinesolar.in",
+      image: ogImage,
+      logo: `${siteUrl}/favicon.svg`,
+      priceRange: "₹₹",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Frontline Solar, Trichy Road",
+        addressLocality: "Karur",
+        addressRegion: "Tamil Nadu",
+        postalCode: "639001",
+        addressCountry: "IN"
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 10.9602,
+        longitude: 78.0825
+      },
+      areaServed: [
+        { "@type": "City", name: "Karur" },
+        { "@type": "City", name: "Tamil Nadu" },
+        { "@type": "State", name: "Tamil Nadu" }
+      ],
+      sameAs: [
+        "https://www.facebook.com/frontlinesolar",
+        "https://www.instagram.com/frontlinesolar",
+        "https://wa.me/919000000000"
+      ],
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "09:00",
+        closes: "19:00"
+      },
+      ...(aggregateRating ? { aggregateRating } : {})
+    })} />
+
+    <!-- JSON-LD: Service Catalog -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      serviceType: "Solar Panel Installation",
+      provider: {
+        "@type": "SolarEnergyCompany",
+        name: "Frontline Solar",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Karur",
+          addressRegion: "Tamil Nadu",
+          addressCountry: "IN"
+        }
+      },
+      areaServed: {
+        "@type": "City",
+        name: "Karur, Tamil Nadu"
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Solar Energy Products & Services in Karur",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: "Residential Rooftop Solar Installation Karur" }
+          },
+          {
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: "Commercial Solar Power Plant Karur" }
+          },
+          {
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: "Solar Water Pump Installation Karur" }
+          },
+          {
+            "@type": "Offer",
+            itemOffered: { "@type": "Product", name: "N-Type TOPCon Bifacial Solar Panels Karur" }
+          },
+          {
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: "PM Surya Ghar Subsidy Processing Karur" }
+          },
+          {
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: "TANGEDCO Net-Metering Approval Karur" }
+          }
+        ]
+      }
+    })} />
+
+    <!-- JSON-LD: FAQ -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "How much does solar panel installation cost in Karur?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "A 3kW residential solar system in Karur costs approximately ₹1,65,000 before subsidy. With PM Surya Ghar central subsidy of ₹78,000 and Tamil Nadu state benefits, your net cost can be as low as ₹72,000. Frontline Solar offers free site surveys and customized quotes for Karur residents."
+          }
+        },
+        {
+          "@type": "Question",
+          name: "What is the PM Surya Ghar subsidy in Karur?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Under PM Surya Ghar Muft Bijli Yojana, Karur residents get ₹30,000 for 1kW, ₹60,000 for 2kW, and ₹78,000 for 3kW and above systems. Frontline Solar handles the entire subsidy application process for you."
+          }
+        },
+        {
+          "@type": "Question",
+          name: "Does TANGEDCO net-metering work in Karur?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes, TANGEDCO net-metering is available in Karur. Your excess solar generation is fed back to the grid and credited against your bi-monthly electricity bill. Frontline Solar is an expert in TANGEDCO net-metering approvals in Karur district."
+          }
+        },
+        {
+          "@type": "Question",
+          name: "Which are the best solar panels for Karur climate?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "N-Type TOPCon bifacial panels are ideal for Karur's hot climate, offering 22.8% efficiency, lower temperature coefficient, and up to 15% bifacial gain. Frontline Solar supplies ALMM-listed, DCR-compliant Make in India panels with 25-year warranty."
+          }
+        }
+      ]
+    })} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+</style>
