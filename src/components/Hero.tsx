@@ -566,9 +566,9 @@ export default function Hero() {
             <div className="flex items-center gap-2 mb-1">
               <Zap className="w-4 h-4 text-solar" />
               <span className="text-white text-sm font-semibold">Bifacial Gain +15%</span>
-            </div>
+            </div>   
             <p className="text-white/60 text-xs">Energy from both sides of the panel</p>
-          </div>
+          </div>   
           <div ref={(el) => { calloutRefs.current[3] = el; }} className="absolute bottom-[30%] right-[10%] glass p-4 rounded-xl max-w-[200px] animate-float" style={{ opacity: 0, animationDelay: '2s' }}>
             <div className="flex items-center gap-2 mb-1">
               <Factory className="w-4 h-4 text-solar" />
