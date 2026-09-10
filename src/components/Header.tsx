@@ -64,10 +64,10 @@ export default function Header() {
             className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors"
           >
             <Phone className="w-4 h-4" />
-            +91 90000 00000
+            +91 86678 72774
           </a>
           <a
-            href="https://wa.me/919000000000"
+            href="https://wa.me/918667872774"
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 bg-gradient-to-r from-solar to-solar-dark text-white text-sm font-semibold rounded-lg shadow-lg shadow-solar/30 hover:shadow-solar/50 hover:scale-105 transition-all"
