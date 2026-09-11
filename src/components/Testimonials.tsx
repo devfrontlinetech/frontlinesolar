@@ -49,7 +49,7 @@ const testimonials = [
   },
   {
     name: "Subikshan",
-    role: "Restaurant Owner",
+    role: "IT Professional",
     location: "Salem",
     rating: 5,
     text: "best solar contractor, they are one stop solution as they handled land preparation, used high efficiency panels, String Inverters and Optimizer, Balance of System (BOS), Monitoring, Civil works, mounting structures",
