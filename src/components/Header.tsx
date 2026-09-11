@@ -9,6 +9,12 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ];
 
+const whatsappMessage = encodeURIComponent (
+  'Hello Frontline Solar, I would like to know about your solar plans and available packages.'
+)
+
+const whatsappUrl = `https://wa.me/918667559595?text=${whatsappMessage}` ;
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -99,7 +105,7 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="https://wa.me/918667559595"
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 px-5 py-3 bg-gradient-to-r from-solar to-solar-dark text-white text-center font-semibold rounded-lg"
