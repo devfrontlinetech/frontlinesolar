@@ -48,7 +48,7 @@ const testimonials = [
     color: "bg-solar-dark",
   },
   {
-    name: "Anand Krishnan",
+    name: "Subikshan",
     role: "Restaurant Owner",
     location: "Salem",
     rating: 5,
