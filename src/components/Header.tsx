@@ -60,14 +60,14 @@ export default function Header() {
 
         <div className="hidden lg:flex items-center gap-3">
           <a
-            href="tel:+918667872774"
+            href="tel:+918667559595"
             className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors"
           >
             <Phone className="w-4 h-4" />
-            +91 86678 72774
+            +91 86675 59595
           </a>
           <a
-            href="https://wa.me/918667872774"
+            href="https://wa.me/918667559595"
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 bg-gradient-to-r from-solar to-solar-dark text-white text-sm font-semibold rounded-lg shadow-lg shadow-solar/30 hover:shadow-solar/50 hover:scale-105 transition-all"
@@ -99,7 +99,7 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="https://wa.me/918667872774"
+              href="https://wa.me/918667559595"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 px-5 py-3 bg-gradient-to-r from-solar to-solar-dark text-white text-center font-semibold rounded-lg"

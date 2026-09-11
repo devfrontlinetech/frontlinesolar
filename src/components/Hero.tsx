@@ -524,7 +524,7 @@ export default function Hero() {
             <span className="absolute inset-0 rounded-xl animate-shimmer pointer-events-none" />
           </button>
           <a
-            href="https://wa.me/918667872774?text=I%20want%20a%20quick%20quote%20for%20solar%20installation"
+            href="https://wa.me/918667559595?text=I%20want%20a%20quick%20quote%20for%20solar%20installation"
             target="_blank"
             rel="noopener noreferrer"
             className="glass px-8 py-4 text-white font-semibold rounded-xl hover:bg-white/15 hover:scale-105 transition-all duration-300 flex items-center gap-2.5"

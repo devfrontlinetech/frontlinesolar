@@ -39,7 +39,7 @@ export default function Footer() {
   };
 
   const contactInfo = [
-    { icon: Phone, label: 'Call Us', value: '+91 8667872774', href: 'tel:+918667872774' },
+    { icon: Phone, label: 'Call Us', value: '+91 8667559595', href: 'tel:+918667559595' },
     { icon: Mail, label: 'Email', value: 'info@frontlinesolar.in', href: 'mailto:info@frontlinesolar.in' },
     { icon: MapPin, label: 'Head Office', value: 'Karur, Tamil Nadu, India', href: '#' },
     { icon: Clock, label: 'Working Hours', value: 'Mon – Sat: 9 AM – 7 PM', href: '#' },
@@ -98,7 +98,7 @@ export default function Footer() {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/918667872774?text=I%20want%20a%20free%20solar%20consultation"
+              href="https://wa.me/918667559595?text=I%20want%20a%20free%20solar%20consultation"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-fade inline-flex items-center gap-3 px-6 py-4 bg-green-500/10 border border-green-500/30 text-green-400 font-semibold rounded-xl hover:bg-green-500/20 transition-all"
