@@ -364,7 +364,7 @@ export default function SubsidyCalculator() {
 
                 {/* CTA */}
                 <a
-                  href="https://wa.me/919000000000?text=I%20want%20to%20proceed%20with%20a%20solar%20installation"
+                  href="https://wa.me/918667872774?text=I%20want%20to%20proceed%20with%20a%20solar%20installation"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-6 w-full py-4 bg-gradient-to-r from-solar to-solar-dark text-white font-semibold rounded-xl flex items-center justify-center gap-2 hover:scale-[1.02] transition-transform shadow-lg shadow-solar/30"
