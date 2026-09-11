@@ -64,7 +64,7 @@ export default function Testimonials() {
   useEffect(() => {
     (async () => {
       const { gsap } = await import("gsap");
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger"); 
       gsap.registerPlugin(ScrollTrigger);
 
       const el = sectionRef.current;
