@@ -112,7 +112,7 @@ export default function Testimonials() {
             <span className="text-gradient-solar">Karur & Tamil Nadu</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-lg max-w-2xl mx-auto">
-            Real homes, real businesses, real savings. See what our customers
+            Real homes, real businesses, real savings. See what our customers  
             say about going solar with Frontline.
           </p>
 
