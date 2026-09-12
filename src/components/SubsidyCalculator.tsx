@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import {
   Calculator,
   IndianRupee,
@@ -11,9 +11,9 @@ import {
   Zap,
   Info,
   CheckCircle2,
-} from 'lucide-react';
+} from "lucide-react";
 
-type ConnectionType = 'domestic' | 'commercial' | 'agri';
+type ConnectionType = "domestic" | "commercial" | "agri";
 
 interface CalcResults {
   recommendedKW: number;
@@ -32,30 +32,31 @@ interface CalcResults {
 export default function SubsidyCalculator() {
   const [monthlyBill, setMonthlyBill] = useState(3000);
   const [roofArea, setRoofArea] = useState(500);
-  const [connectionType, setConnectionType] = useState<ConnectionType>('domestic');
+  const [connectionType, setConnectionType] =
+    useState<ConnectionType>("domestic");
   const [animated, setAnimated] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   // Animate in on scroll
   useEffect(() => {
     (async () => {
-      const { gsap } = await import('gsap');
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+      const { gsap } = await import("gsap");
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
       gsap.registerPlugin(ScrollTrigger);
 
       const el = sectionRef.current;
       if (!el) return;
 
       const ctx = gsap.context(() => {
-        gsap.from('.calc-fade-up', {
+        gsap.from(".calc-fade-up", {
           y: 40,
           opacity: 0,
           duration: 0.8,
           stagger: 0.1,
-          ease: 'power2.out',
+          ease: "power2.out",
           scrollTrigger: {
             trigger: el,
-            start: 'top 75%',
+            start: "top 75%",
           },
         });
       }, el);
@@ -80,16 +81,16 @@ export default function SubsidyCalculator() {
     recommendedKW = Math.max(1, Math.round(recommendedKW * 2) / 2);
 
     // Cost per kW (approx ₹55,000/kW for residential, ₹60,000 for commercial)
-    const costPerKW = connectionType === 'commercial' ? 60000 : 55000;
+    const costPerKW = connectionType === "commercial" ? 60000 : 55000;
     const grossCost = recommendedKW * costPerKW;
 
     // PM Surya Ghar: Muft Bijli Yojana Central Subsidy
     let centralSubsidy = 0;
-    if (connectionType === 'domestic') {
+    if (connectionType === "domestic") {
       if (recommendedKW <= 1) centralSubsidy = 30000;
       else if (recommendedKW <= 2) centralSubsidy = 60000;
       else centralSubsidy = 78000;
-    } else if (connectionType === 'agri') {
+    } else if (connectionType === "agri") {
       // Agricultural: state subsidies vary, use central as base
       centralSubsidy = recommendedKW <= 3 ? 78000 : 78000;
     }
@@ -97,7 +98,7 @@ export default function SubsidyCalculator() {
     // Tamil Nadu state subsidy (simplified — TN currently provides net-metering benefits)
     // For domestic: additional state benefit of ~₹10,000 for 1-2kW, ₹15,000 for 3kW+
     let stateSubsidy = 0;
-    if (connectionType === 'domestic') {
+    if (connectionType === "domestic") {
       stateSubsidy = recommendedKW >= 3 ? 15000 : 10000;
     }
 
@@ -108,7 +109,7 @@ export default function SubsidyCalculator() {
     const annualGeneration = recommendedKW * 4.5 * 365;
 
     // Annual savings = generation * tariff rate
-    const tariffRate = connectionType === 'commercial' ? 9 : 8;
+    const tariffRate = connectionType === "commercial" ? 9 : 8;
     const annualSavings = annualGeneration * tariffRate * 0.85; // 85% self-consumption
 
     // Payback period
@@ -148,17 +149,41 @@ export default function SubsidyCalculator() {
   }, [results]);
 
   const formatCurrency = (n: number) => {
-    return '₹' + Math.round(n).toLocaleString('en-IN');
+    return "₹" + Math.round(n).toLocaleString("en-IN");
   };
 
-  const connectionTypes: { type: ConnectionType; label: string; icon: React.ElementType; desc: string }[] = [
-    { type: 'domestic', label: 'Domestic', icon: Home, desc: 'Residential rooftop' },
-    { type: 'commercial', label: 'Commercial', icon: Building2, desc: 'Business / Industry' },
-    { type: 'agri', label: 'Agri-Irrigation', icon: Wheat, desc: 'Farm pump solar' },
+  const connectionTypes: {
+    type: ConnectionType;
+    label: string;
+    icon: React.ElementType;
+    desc: string;
+  }[] = [
+    {
+      type: "domestic",
+      label: "Domestic",
+      icon: Home,
+      desc: "Residential rooftop",
+    },
+    {
+      type: "commercial",
+      label: "Commercial",
+      icon: Building2,
+      desc: "Business / Industry",
+    },
+    {
+      type: "agri",
+      label: "Agri-Irrigation",
+      icon: Wheat,
+      desc: "Farm pump solar",
+    },
   ];
 
   return (
-    <section ref={sectionRef} id="subsidy" className="relative py-24 md:py-32 bg-gradient-to-b from-background to-secondary/30 overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="subsidy"
+      className="relative py-24 md:py-32 bg-gradient-to-b from-background to-secondary/30 overflow-hidden"
+    >
       {/* Decorative gradient */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-solar/40 to-transparent" />
       <div className="absolute top-1/2 -right-32 w-96 h-96 rounded-full bg-solar/5 blur-[100px]" />
@@ -171,11 +196,13 @@ export default function SubsidyCalculator() {
             PM Surya Ghar · PMSGY
           </div>
           <h2 className="text-display-lg text-foreground">
-            Karur & Tamil Nadu <span className="text-gradient-solar">Subsidy Hub</span>
+            Karur & Tamil Nadu{" "}
+            <span className="text-gradient-solar">Subsidy Hub</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-lg max-w-2xl mx-auto">
-            Calculate your Central + State solar subsidy and TANGEDCO net-metering savings in real-time.
-            Built with live Tamil Nadu tariff structures and PM Surya Ghar guidelines for Karur residents.
+            Calculate your Central + State solar subsidy and TANGEDCO
+            net-metering savings in real-time. Built with live Tamil Nadu tariff
+            structures and PM Surya Ghar guidelines for Karur residents.
           </p>
         </div>
 
@@ -197,7 +224,9 @@ export default function SubsidyCalculator() {
                     <IndianRupee className="w-4 h-4 text-solar" />
                     Monthly Electricity Bill
                   </label>
-                  <span className="text-lg font-bold text-solar tabular-nums">{formatCurrency(monthlyBill)}</span>
+                  <span className="text-lg font-bold text-solar tabular-nums">
+                    {formatCurrency(monthlyBill)}
+                  </span>
                 </div>
                 <input
                   type="range"
@@ -224,7 +253,9 @@ export default function SubsidyCalculator() {
                     <Home className="w-4 h-4 text-solar" />
                     Roof Area (Sq. Ft.)
                   </label>
-                  <span className="text-lg font-bold text-solar tabular-nums">{roofArea} ft²</span>
+                  <span className="text-lg font-bold text-solar tabular-nums">
+                    {roofArea} ft²
+                  </span>
                 </div>
                 <input
                   type="range"
@@ -246,7 +277,9 @@ export default function SubsidyCalculator() {
 
               {/* Connection Type */}
               <div>
-                <label className="text-sm font-medium text-foreground mb-3 block">Connection Type</label>
+                <label className="text-sm font-medium text-foreground mb-3 block">
+                  Connection Type
+                </label>
                 <div className="grid grid-cols-3 gap-2">
                   {connectionTypes.map(({ type, label, icon: Icon, desc }) => (
                     <button
@@ -254,13 +287,17 @@ export default function SubsidyCalculator() {
                       onClick={() => setConnectionType(type)}
                       className={`p-3 rounded-xl border-2 transition-all text-center ${
                         connectionType === type
-                          ? 'border-solar bg-solar/10 text-foreground'
-                          : 'border-border bg-background hover:border-solar/50'
+                          ? "border-solar bg-solar/10 text-foreground"
+                          : "border-border bg-background hover:border-solar/50"
                       }`}
                     >
-                      <Icon className={`w-5 h-5 mx-auto mb-1.5 ${connectionType === type ? 'text-solar' : 'text-muted-foreground'}`} />
+                      <Icon
+                        className={`w-5 h-5 mx-auto mb-1.5 ${connectionType === type ? "text-solar" : "text-muted-foreground"}`}
+                      />
                       <div className="text-xs font-semibold">{label}</div>
-                      <div className="text-[10px] text-muted-foreground mt-0.5 hidden sm:block">{desc}</div>
+                      <div className="text-[10px] text-muted-foreground mt-0.5 hidden sm:block">
+                        {desc}
+                      </div>
                     </button>
                   ))}
                 </div>
@@ -270,8 +307,12 @@ export default function SubsidyCalculator() {
               <div className="mt-6 p-4 bg-solar/5 rounded-xl flex gap-3">
                 <Info className="w-5 h-5 text-solar shrink-0 mt-0.5" />
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  Subsidy calculated per <strong className="text-foreground">PM Surya Ghar: Muft Bijli Yojana</strong> guidelines.
-                  Actual amounts may vary based on TANGEDCO Karur approval and DISCOM inspection.
+                  Subsidy calculated per{" "}
+                  <strong className="text-foreground">
+                    PM Surya Ghar: Muft Bijli Yojana
+                  </strong>{" "}
+                  guidelines. Actual amounts may vary based on TANGEDCO Karur
+                  approval and DISCOM inspection.
                 </p>
               </div>
             </div>
@@ -298,15 +339,23 @@ export default function SubsidyCalculator() {
                 {/* Primary result */}
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5">
-                    <p className="text-white/50 text-xs uppercase tracking-wide mb-1">Recommended System</p>
+                    <p className="text-white/50 text-xs uppercase tracking-wide mb-1">
+                      Recommended System
+                    </p>
                     <p className="text-3xl font-bold text-solar tabular-nums">
-                      {results.recommendedKW.toFixed(1)} <span className="text-lg text-white/70">kW</span>
+                      {results.recommendedKW.toFixed(1)}{" "}
+                      <span className="text-lg text-white/70">kW</span>
                     </p>
                   </div>
                   <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5">
-                    <p className="text-white/50 text-xs uppercase tracking-wide mb-1">Annual Generation</p>
+                    <p className="text-white/50 text-xs uppercase tracking-wide mb-1">
+                      Annual Generation
+                    </p>
                     <p className="text-3xl font-bold text-solar tabular-nums">
-                      {Math.round(results.annualGeneration).toLocaleString('en-IN')} <span className="text-lg text-white/70">units</span>
+                      {Math.round(results.annualGeneration).toLocaleString(
+                        "en-IN",
+                      )}{" "}
+                      <span className="text-lg text-white/70">units</span>
                     </p>
                   </div>
                 </div>
@@ -314,26 +363,46 @@ export default function SubsidyCalculator() {
                 {/* Cost breakdown */}
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center justify-between py-3 border-b border-white/10">
-                    <span className="text-white/70 text-sm">Gross System Cost</span>
-                    <span className="text-white font-semibold tabular-nums">{formatCurrency(results.grossCost)}</span>
+                    <span className="text-white/70 text-sm">
+                      Gross System Cost
+                    </span>
+                    <span className="text-white font-semibold tabular-nums">
+                      {formatCurrency(results.grossCost)}
+                    </span>
                   </div>
                   <div className="flex items-center justify-between py-3 border-b border-white/10">
                     <div className="flex items-center gap-2">
-                      <span className="text-white/70 text-sm">Central Subsidy (PMSGY)</span>
-                      <span className="px-2 py-0.5 bg-green-500/20 text-green-400 text-[10px] font-semibold rounded">−</span>
+                      <span className="text-white/70 text-sm">
+                        Central Subsidy (PMSGY)
+                      </span>
+                      <span className="px-2 py-0.5 bg-green-500/20 text-green-400 text-[10px] font-semibold rounded">
+                        −
+                      </span>
                     </div>
-                    <span className="text-green-400 font-semibold tabular-nums">−{formatCurrency(results.centralSubsidy)}</span>
+                    <span className="text-green-400 font-semibold tabular-nums">
+                      −{formatCurrency(results.centralSubsidy)}
+                    </span>
                   </div>
                   <div className="flex items-center justify-between py-3 border-b border-white/10">
                     <div className="flex items-center gap-2">
-                      <span className="text-white/70 text-sm">Tamil Nadu State Benefit</span>
-                      <span className="px-2 py-0.5 bg-green-500/20 text-green-400 text-[10px] font-semibold rounded">−</span>
+                      <span className="text-white/70 text-sm">
+                        Tamil Nadu State Benefit
+                      </span>
+                      <span className="px-2 py-0.5 bg-green-500/20 text-green-400 text-[10px] font-semibold rounded">
+                        −
+                      </span>
                     </div>
-                    <span className="text-green-400 font-semibold tabular-nums">−{formatCurrency(results.stateSubsidy)}</span>
+                    <span className="text-green-400 font-semibold tabular-nums">
+                      −{formatCurrency(results.stateSubsidy)}
+                    </span>
                   </div>
                   <div className="flex items-center justify-between py-4 bg-solar/10 rounded-xl px-4">
-                    <span className="text-white font-semibold">Your Net Investment</span>
-                    <span className="text-2xl font-bold text-solar tabular-nums">{formatCurrency(results.netCost)}</span>
+                    <span className="text-white font-semibold">
+                      Your Net Investment
+                    </span>
+                    <span className="text-2xl font-bold text-solar tabular-nums">
+                      {formatCurrency(results.netCost)}
+                    </span>
                   </div>
                 </div>
 
@@ -351,7 +420,9 @@ export default function SubsidyCalculator() {
                     <p className="text-2xl font-bold text-white tabular-nums">
                       ₹{(results.savings25Year / 100000).toFixed(1)}L
                     </p>
-                    <p className="text-white/50 text-xs mt-1">25-Year Savings</p>
+                    <p className="text-white/50 text-xs mt-1">
+                      25-Year Savings
+                    </p>
                   </div>
                   <div className="bg-white/5 rounded-xl p-4 text-center">
                     <Zap className="w-5 h-5 text-solar mx-auto mb-2" />
@@ -378,12 +449,17 @@ export default function SubsidyCalculator() {
             {/* Subsidy slab reference */}
             <div className="mt-4 grid grid-cols-3 gap-3">
               {[
-                { kw: '1 kW', subsidy: '₹30,000' },
-                { kw: '2 kW', subsidy: '₹60,000' },
-                { kw: '3 kW+', subsidy: '₹78,000' },
+                { kw: "1 kW", subsidy: "₹30,000" },
+                { kw: "2 kW", subsidy: "₹60,000" },
+                { kw: "3 kW+", subsidy: "₹78,000" },
               ].map((slab) => (
-                <div key={slab.kw} className="bg-card border border-border rounded-xl p-3 text-center">
-                  <p className="text-xs text-muted-foreground">{slab.kw} System</p>
+                <div
+                  key={slab.kw}
+                  className="bg-card border border-border rounded-xl p-3 text-center"
+                >
+                  <p className="text-xs text-muted-foreground">
+                    {slab.kw} System
+                  </p>
                   <p className="text-sm font-bold text-solar">{slab.subsidy}</p>
                 </div>
               ))}
