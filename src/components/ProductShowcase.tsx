@@ -213,7 +213,7 @@ export default function ProductShowcase() {
                     ))}
                   </ul>
 
-                  {/* Footer */}
+                  {/* Footer */}  
                   <div className="flex items-center justify-between pt-4 border-t border-border">
                     <span className="text-sm font-semibold text-solar">{product.badge}</span>
                     <button className="flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-solar transition-colors group/btn">
