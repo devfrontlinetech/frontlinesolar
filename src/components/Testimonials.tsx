@@ -69,7 +69,7 @@ export default function Testimonials() {
 
       const el = sectionRef.current;
       if (!el) return;
-
+ 
       const ctx = gsap.context(() => {
         gsap.from(".test-header", {
           y: 40,
