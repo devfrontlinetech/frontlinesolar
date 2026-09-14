@@ -389,7 +389,7 @@ export default function SubsidyCalculator() {
                         Tamil Nadu State Benefit
                       </span>
                       <span className="px-2 py-0.5 bg-green-500/20 text-green-400 text-[10px] font-semibold rounded">
-                        −
+                        − 
                       </span>
                     </div>
                     <span className="text-green-400 font-semibold tabular-nums">
