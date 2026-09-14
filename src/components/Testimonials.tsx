@@ -90,7 +90,7 @@ export default function Testimonials() {
           });
         });
       }, el);
-
+  
       return () => ctx.revert();
     })();
   }, []);
