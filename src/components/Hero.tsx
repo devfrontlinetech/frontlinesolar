@@ -221,7 +221,7 @@ export default function Hero() {
             canvasCtx.lineWidth = 1.5;
             canvasCtx.beginPath();
             canvasCtx.moveTo(sunX, sunY);
-            canvasCtx.lineTo(panelX, panelPivotY - pH / 2);
+            canvasCtx.lineTo(panelX, panelPivotY - pH / 2); 
             canvasCtx.stroke();
           }
 
