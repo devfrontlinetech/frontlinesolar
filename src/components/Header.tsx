@@ -126,7 +126,7 @@ export default function Header() {
               </a>
             ))}
             <a
-              href={whatsappUrl}
+              href={whatsappUrl} 
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 px-5 py-3 bg-gradient-to-r from-solar to-solar-dark text-white text-center font-semibold rounded-lg"
