@@ -670,7 +670,7 @@ export default function Hero() {
             <Calculator className="w-5 h-5" />
             Calculate Subsidy
             <span className="absolute inset-0 rounded-xl animate-shimmer pointer-events-none" />
-          </button>
+          </button> 
           <a
             href="https://wa.me/918667559595?text=I%20want%20a%20quick%20quote%20for%20solar%20installation"
             target="_blank"
