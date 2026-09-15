@@ -148,7 +148,7 @@ export default function Testimonials() {
               </div> 
 
               <p className="text-sm text-muted-foreground leading-relaxed mb-6 relative z-10">
-                "{t.text}" 
+                "{t.text}"  
               </p>
 
               <div className="flex items-center gap-3 pt-4 border-t border-border">
