@@ -283,7 +283,17 @@ export default function Footer() {
             </div>
 
             <p className="text-xs text-white/40">
-              © {new Date().getFullYear()} Frontline Tech. All rights reserved.
+              © {new Date().getFullYear()}{" "}
+              <a
+                href="https://frontlinetech.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
+              >
+                {" "}
+                Frontline Tech{" "}
+              </a>
+              . All rights reserved.
             </p>
           </div>
         </div>
