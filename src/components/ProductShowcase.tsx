@@ -175,7 +175,7 @@ export default function ProductShowcase() {
                     </div>
                     <span className={`px-3 py-1 rounded-full text-xs font-bold ${product.tagColor}`}>
                       {product.tag}
-                    </span>
+                    </span> 
                   </div>
 
                   {/* Spec grid */}
