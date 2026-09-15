@@ -145,7 +145,7 @@ export default function Testimonials() {
                 {Array.from({ length: t.rating }).map((_, j) => (
                   <Star key={j} className="w-4 h-4 fill-solar text-solar" /> 
                 ))}
-              </div>
+              </div> 
 
               <p className="text-sm text-muted-foreground leading-relaxed mb-6 relative z-10">
                 "{t.text}"
