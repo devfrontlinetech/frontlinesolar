@@ -147,7 +147,7 @@ export default function ProductShowcase() {
             Tier-1 ALMM listed solar modules and smart energy storage — available in Karur and across Tamil Nadu.
             Every component manufactured in India to the highest global standards.
           </p>
-        </div>
+        </div> 
 
         {/* Product grid */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
