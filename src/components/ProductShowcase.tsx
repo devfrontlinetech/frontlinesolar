@@ -189,7 +189,7 @@ export default function ProductShowcase() {
                     </div>
                     <div className="bg-secondary/50 rounded-xl p-3 text-center">
                       <div className="flex items-center justify-center mb-1">
-                        <Sun className="w-4 h-4 text-solar" />
+                        <Sun className="w-4 h-4 text-solar" /> 
                       </div>
                       <p className="text-sm font-bold text-foreground">{product.power}</p>
                       <p className="text-[10px] text-muted-foreground">Power Range</p>
