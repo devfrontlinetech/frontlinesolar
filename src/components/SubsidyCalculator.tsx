@@ -617,7 +617,6 @@ const SubsidyCalculator: React.FC = () => {
 
 export default SubsidyCalculator;
 
-
 // Old Subsidy Calculator code (commented out for reference)
 
 // import React, { useState, useMemo, useEffect, useRef } from "react";
