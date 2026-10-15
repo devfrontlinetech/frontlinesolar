@@ -10,7 +10,7 @@ import {
   TrendingDown,
   PiggyBank,
   Zap,
-  Info,
+  Info, 
   Leaf,
   ClipboardCheck,
 } from "lucide-react";
@@ -253,7 +253,7 @@ const SubsidyCalculator: React.FC = () => {
 
                 <div className="mt-1 flex justify-between text-[10px] text-muted-foreground">
                   <span>₹500</span>
-                  <span>₹20,000</span>
+                  <span>₹20,000</span> 
                 </div>
               </div>
 
