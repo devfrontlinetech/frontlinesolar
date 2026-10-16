@@ -64,7 +64,7 @@ const getCentralSubsidy = (
   connectionType: ConnectionType,
 ) => {
   if (connectionType !== "domestic" || systemKW <= 0) {
-    return 0; 
+    return 0;  
   }
 
   if (systemKW <= 2) {
