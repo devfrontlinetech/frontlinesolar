@@ -457,7 +457,7 @@ const SubsidyCalculator: React.FC = () => {
                   </span>
 
                   <span className="text-xs font-bold text-amber-400">
-                    {applianceLoad.toFixed(2)} kW /{" "}
+                    {applianceLoad.toFixed(2)} kW /{" "}   
                     {results.recommendedKW.toFixed(1)} kW
                   </span>
                 </div>
