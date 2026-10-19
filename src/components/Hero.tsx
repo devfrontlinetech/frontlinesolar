@@ -641,7 +641,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Headline */}
+        {/* Headline */}  
         <h1 ref={headlineRef} className="text-display-2xl text-white max-w-5xl">
           ENGINEERED FOR THE SUN.
           <br />
