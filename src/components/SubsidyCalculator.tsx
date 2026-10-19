@@ -506,7 +506,7 @@ const SubsidyCalculator: React.FC = () => {
 
               <div className="mb-5">
                 <div className="flex items-center justify-between border-b border-white/10 py-3">
-                  <span className="text-xs text-white/50">
+                  <span className="text-xs text-white/50"> 
                     Gross System Cost
                   </span>
 
