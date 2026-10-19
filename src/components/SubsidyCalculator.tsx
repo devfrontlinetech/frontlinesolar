@@ -10,7 +10,7 @@ import {
   TrendingDown,
   PiggyBank,
   Zap,
-  Info, 
+  Info,
   Leaf,
   ClipboardCheck,
 } from "lucide-react";
@@ -64,7 +64,7 @@ const getCentralSubsidy = (
   connectionType: ConnectionType,
 ) => {
   if (connectionType !== "domestic" || systemKW <= 0) {
-    return 0;  
+    return 0;
   }
 
   if (systemKW <= 2) {
@@ -253,7 +253,7 @@ const SubsidyCalculator: React.FC = () => {
 
                 <div className="mt-1 flex justify-between text-[10px] text-muted-foreground">
                   <span>₹500</span>
-                  <span>₹20,000</span> 
+                  <span>₹20,000</span>
                 </div>
               </div>
 
@@ -457,7 +457,7 @@ const SubsidyCalculator: React.FC = () => {
                   </span>
 
                   <span className="text-xs font-bold text-amber-400">
-                    {applianceLoad.toFixed(2)} kW /{" "}   
+                    {applianceLoad.toFixed(2)} kW /{" "}
                     {results.recommendedKW.toFixed(1)} kW
                   </span>
                 </div>
