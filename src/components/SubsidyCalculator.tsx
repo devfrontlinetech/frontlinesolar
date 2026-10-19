@@ -238,7 +238,7 @@ const SubsidyCalculator: React.FC = () => {
                     ₹{formatCurrency(monthlyBill)}
                   </span>
                 </div>
-
+  
                 <input
                   type="range"
                   min="500"
