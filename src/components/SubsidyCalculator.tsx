@@ -544,7 +544,7 @@ const SubsidyCalculator: React.FC = () => {
 
               {/* STATS */}
 
-              <div className="mb-5 grid grid-cols-3 gap-2">
+              <div className="mb-5 grid grid-cols-3 gap-2"> 
                 <div className="rounded-2xl bg-white/[0.05] p-3 text-center">
                   <span className="mb-1 flex justify-center text-amber-400">
                     <TrendingDown size={20} strokeWidth={2.2} />
