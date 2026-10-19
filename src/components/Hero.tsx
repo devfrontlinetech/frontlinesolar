@@ -688,7 +688,7 @@ export default function Hero() {
           style={{ opacity: Math.max(0, 1 - scrollProgress * 5) }}
         >
           <span className="text-xs uppercase tracking-widest">
-            Scroll to Explore 
+            Scroll to Explore
           </span>
           <ArrowDown className="w-5 h-5 animate-bounce" />
         </div>
