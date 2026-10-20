@@ -891,7 +891,7 @@ const HomeAppliances: React.FC<HomeAppliancesProps> = ({ onLoadChange }) => {
           <strong className="text-xs text-foreground">
             {totals.dailyUnits.toFixed(1)} kWh
           </strong>
-        </div>
+        </div> 
 
         <div className="rounded-xl border border-border bg-secondary/20 p-2">
           <span className="block text-[9px] text-muted-foreground">
