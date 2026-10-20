@@ -355,7 +355,7 @@ const HomeAppliances: React.FC<HomeAppliancesProps> = ({ onLoadChange }) => {
   };
 
   const updateQuantity = (id: string, quantity: number) => {
-    setAppliances((previous) => 
+    setAppliances((previous) =>
       previous.map((item) =>
         item.id === id
           ? {
@@ -503,7 +503,6 @@ const HomeAppliances: React.FC<HomeAppliancesProps> = ({ onLoadChange }) => {
       {/* Category */}
 
       <div className="mb-3 flex gap-2">
-        
         <button
           type="button"
           onClick={() => changeCategory("home")}
@@ -891,7 +890,7 @@ const HomeAppliances: React.FC<HomeAppliancesProps> = ({ onLoadChange }) => {
           <strong className="text-xs text-foreground">
             {totals.dailyUnits.toFixed(1)} kWh
           </strong>
-        </div> 
+        </div>
 
         <div className="rounded-xl border border-border bg-secondary/20 p-2">
           <span className="block text-[9px] text-muted-foreground">
