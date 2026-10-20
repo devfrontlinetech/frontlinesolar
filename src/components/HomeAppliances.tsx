@@ -563,7 +563,7 @@ const HomeAppliances: React.FC<HomeAppliancesProps> = ({ onLoadChange }) => {
           {smartAppliances[category].map((item) => (
             <button
               key={item.id}
-              type="button"
+              type="button" 
               onClick={() => addSmartAppliance(item)}
               className="flex shrink-0 items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-[10px] font-semibold text-foreground transition hover:border-amber-400 hover:bg-amber-50"
             >
