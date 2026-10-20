@@ -82,7 +82,7 @@ export default function Header() {
           <a
             href="tel:+918667559595"
             className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors"
-          >
+          > 
             <Phone className="w-4 h-4" />
             +91 86675 59595
           </a>
