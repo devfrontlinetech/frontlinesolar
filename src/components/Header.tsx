@@ -27,7 +27,7 @@ export default function Header() {
 
   const handleClick = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
+    const el = document.querySelector(href);     
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
