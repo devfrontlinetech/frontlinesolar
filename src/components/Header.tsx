@@ -58,7 +58,7 @@ export default function Header() {
             </span>
             <span className="text-solar text-[10px] font-medium tracking-widest uppercase">
               Karur · Tamil Nadu · India
-            </span>
+            </span> 
           </div>
         </a>
 
