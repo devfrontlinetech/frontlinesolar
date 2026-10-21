@@ -73,7 +73,7 @@ const getCentralSubsidy = (
 
   return Math.min(78000, 60000 + (systemKW - 2) * 18000);
 };
-
+ 
 const getStateBenefit = (systemKW: number, connectionType: ConnectionType) => {
   if (connectionType !== "domestic" || systemKW <= 0) {
     return 0;
