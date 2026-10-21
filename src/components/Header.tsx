@@ -43,7 +43,7 @@ export default function Header() {
         <a
           href="#hero"
           onClick={(e) => {
-            e.preventDefault(); 
+            e.preventDefault();
             handleClick("#hero");
           }}
           className="flex items-center gap-2.5 group"
@@ -65,7 +65,7 @@ export default function Header() {
         <nav className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
             <a
-              key={link.href} 
+              key={link.href}
               href={link.href}
               onClick={(e) => {
                 e.preventDefault();
