@@ -43,7 +43,7 @@ export default function Header() {
         <a
           href="#hero"
           onClick={(e) => {
-            e.preventDefault();
+            e.preventDefault(); 
             handleClick("#hero");
           }}
           className="flex items-center gap-2.5 group"
