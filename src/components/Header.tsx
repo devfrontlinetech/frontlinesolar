@@ -65,7 +65,7 @@ export default function Header() {
         <nav className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
             <a
-              key={link.href}
+              key={link.href} 
               href={link.href}
               onClick={(e) => {
                 e.preventDefault();
