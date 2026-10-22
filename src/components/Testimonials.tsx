@@ -123,7 +123,7 @@ export default function Testimonials() {
             <div className="flex items-center gap-0.5" aria-hidden="true">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="w-5 h-5 fill-solar text-solar" />
-              ))}
+              ))} 
             </div>
             <span className="text-sm font-bold text-foreground">4.9/5</span>
             <span className="text-sm text-muted-foreground">
