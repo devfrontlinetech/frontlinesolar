@@ -69,7 +69,7 @@ export default function Testimonials() {
 
       const el = sectionRef.current;
       if (!el) return;
- 
+
       const ctx = gsap.context(() => {
         gsap.from(".test-header", {
           y: 40,
@@ -123,7 +123,7 @@ export default function Testimonials() {
             <div className="flex items-center gap-0.5" aria-hidden="true">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="w-5 h-5 fill-solar text-solar" />
-              ))} 
+              ))}
             </div>
             <span className="text-sm font-bold text-foreground">4.9/5</span>
             <span className="text-sm text-muted-foreground">
@@ -132,7 +132,7 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* Testimonial grid */} 
+        {/* Testimonial grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <div
@@ -143,12 +143,12 @@ export default function Testimonials() {
 
               <div className="flex items-center gap-1 mb-4">
                 {Array.from({ length: t.rating }).map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-solar text-solar" /> 
+                  <Star key={j} className="w-4 h-4 fill-solar text-solar" />
                 ))}
-              </div> 
+              </div>
 
               <p className="text-sm text-muted-foreground leading-relaxed mb-6 relative z-10">
-                "{t.text}"  
+                "{t.text}"
               </p>
 
               <div className="flex items-center gap-3 pt-4 border-t border-border">
