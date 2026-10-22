@@ -73,7 +73,7 @@ const getCentralSubsidy = (
 
   return Math.min(78000, 60000 + (systemKW - 2) * 18000);
 };
- 
+
 const getStateBenefit = (systemKW: number, connectionType: ConnectionType) => {
   if (connectionType !== "domestic" || systemKW <= 0) {
     return 0;
@@ -135,7 +135,7 @@ const SubsidyCalculator: React.FC = () => {
     );
 
     const annualBillSavings = monthlyBill * 12;
- 
+
     const payback =
       annualBillSavings > 0 ? netInvestment / annualBillSavings : 0;
 
@@ -172,7 +172,7 @@ const SubsidyCalculator: React.FC = () => {
       className="relative overflow-hidden bg-secondary/20 py-16 md:py-24"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* HEADER */} 
+        {/* HEADER */}
 
         <div className="mx-auto mb-10 max-w-3xl text-center">
           <span className="mb-3 inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-xs font-bold uppercase tracking-wide text-amber-600">
@@ -238,7 +238,7 @@ const SubsidyCalculator: React.FC = () => {
                     ₹{formatCurrency(monthlyBill)}
                   </span>
                 </div>
-  
+
                 <input
                   type="range"
                   min="500"
