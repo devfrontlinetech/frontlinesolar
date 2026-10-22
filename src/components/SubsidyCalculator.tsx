@@ -135,7 +135,7 @@ const SubsidyCalculator: React.FC = () => {
     );
 
     const annualBillSavings = monthlyBill * 12;
-
+ 
     const payback =
       annualBillSavings > 0 ? netInvestment / annualBillSavings : 0;
 
