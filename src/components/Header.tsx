@@ -53,7 +53,7 @@ export default function Header() {
             <div className="absolute inset-0 rounded-xl bg-solar/40 blur-md -z-10 animate-pulse-glow" />
           </div>
           <div className="flex flex-col leading-none">
-            <span className="text-white font-bold text-lg tracking-tight">
+            <span className="text-white font-bold text-lg tracking-tight"> 
               Frontline Solar
             </span>
             <span className="text-solar text-[10px] font-medium tracking-widest uppercase">
