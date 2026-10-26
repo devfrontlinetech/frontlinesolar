@@ -10,7 +10,7 @@ const navLinks = [
 ];
 
 const whatsappMessage = encodeURIComponent(
-  "Hello Frontline Solar, I would like to know about your solar plans and available packages.",
+  "Hello Frontline Solar, I would like to get a quotation for a solar panel system. Please share the available solar packages, pricing, installation details, subsidy benefits, system capacity options, and warranty information. Thank you!",
 );
 
 const whatsappUrl = `https://wa.me/918667559595?text=${whatsappMessage}`;
