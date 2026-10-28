@@ -20,7 +20,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40); 
+    const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -53,7 +53,7 @@ export default function Header() {
             <div className="absolute inset-0 rounded-xl bg-solar/40 blur-md -z-10 animate-pulse-glow" />
           </div>
           <div className="flex flex-col leading-none">
-            <span className="text-white font-bold text-lg tracking-tight"> 
+            <span className="text-white font-bold text-lg tracking-tight">
               Frontline Solar
             </span>
             <span className="text-solar text-[10px] font-medium tracking-widest uppercase">
@@ -69,7 +69,7 @@ export default function Header() {
               href={link.href}
               onClick={(e) => {
                 e.preventDefault();
-                handleClick(link.href); 
+                handleClick(link.href);
               }}
               className="px-4 py-2 text-sm font-medium text-white/70 hover:text-white transition-colors rounded-lg hover:bg-white/5"
             >
