@@ -7,7 +7,7 @@ const Table = React.forwardRef<
   React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...props }, ref) => (
   <div className="relative w-full overflow-auto">
-    <table
+    <table 
       ref={ref}
       className={cn("w-full caption-bottom text-sm", className)}
       {...props}
@@ -46,7 +46,7 @@ const TableFooter = React.forwardRef<
       "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",
       className,
     )}
-    {...props}
+    {...props} 
   />
 ));
 TableFooter.displayName = "TableFooter";
