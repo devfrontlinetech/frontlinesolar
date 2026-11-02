@@ -126,7 +126,7 @@ export default function WhyFrontline() {
       id="why-us"
       className="relative py-24 md:py-32 bg-secondary/20 overflow-hidden"
     >
-      <div className="absolute inset-0 hero-grid-bg opacity-30" />
+      <div className="absolute inset-0 hero-grid-bg opacity-30" /> 
       <div className="absolute top-0 right-1/4 w-72 h-72 bg-solar/5 blur-[120px] rounded-full" />
 
       <div className="relative max-w-7xl mx-auto px-6">
