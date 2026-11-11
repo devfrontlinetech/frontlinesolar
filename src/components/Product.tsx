@@ -131,15 +131,7 @@ export default function Product() {
   }, [selectedProduct]);
 
   const bookProduct = (product: Product) => {
-    const message = `Hello, I am interested in this solar product.
-
-Product: ${product.name}
-Category: ${product.category}
-Capacity: ${product.power}
-Price: ${formatPrice(product.price)}
- Warranty: ${product.warranty}
-
-Please share more details and availability.`;
+    const message = `Hello Frontline Solar, I am interested in ${product.name}. Please share the price, warranty details and availability.`;
 
     const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
