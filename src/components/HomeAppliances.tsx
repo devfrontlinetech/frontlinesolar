@@ -275,6 +275,7 @@ const HomeAppliances: React.FC<HomeAppliancesProps> = ({ onLoadChange }) => {
   const [customHours, setCustomHours] = useState("2");
 
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [editingName, setEditingName] = useState("");
 
   const categoryAppliances = appliances.filter(
     (item) => item.category === category,
@@ -334,6 +335,7 @@ const HomeAppliances: React.FC<HomeAppliancesProps> = ({ onLoadChange }) => {
     setCategory(newCategory);
     setShowCustom(false);
     setEditingId(null);
+    setEditingName("");
   };
 
   const toggleAppliance = (id: string) => {
@@ -563,7 +565,7 @@ const HomeAppliances: React.FC<HomeAppliancesProps> = ({ onLoadChange }) => {
           {smartAppliances[category].map((item) => (
             <button
               key={item.id}
-              type="button" 
+              type="button"
               onClick={() => addSmartAppliance(item)}
               className="flex shrink-0 items-center gap-1.5 rounded-lg border border-border bg-background px-2.5 py-1.5 text-[10px] font-semibold text-foreground transition hover:border-amber-400 hover:bg-amber-50"
             >
@@ -582,70 +584,65 @@ const HomeAppliances: React.FC<HomeAppliancesProps> = ({ onLoadChange }) => {
 
       {/* Appliance List */}
 
-      <div className="space-y-2">
+      {/* Appliance List */}
+
+      <div className="space-y-3">
         {categoryAppliances.map((item) => {
           const dailyUsage = (item.power * item.quantity * item.hours) / 1000;
 
           return (
             <div
               key={item.id}
-              className={`rounded-xl border p-2.5 transition-all ${
+              className={`relative w-full min-w-0 rounded-xl border p-3 transition-all ${
+                // className={`relative w-full min-w-0 overflow-hidden rounded-xl border p-3 transition-all ${
                 item.active
                   ? "border-amber-200 bg-amber-50/70"
                   : "border-border bg-secondary/20"
               }`}
             >
-              <div className="flex items-center gap-2">
-                {/* Active */}
+              {/* Appliance Details and Controls */}
+
+              <div className="grid w-full min-w-0 grid-cols-[auto_auto_minmax(0,1fr)] items-center gap-x-2 gap-y-3 lg:grid-cols-[32px_36px_minmax(65px,1fr)_auto]">
+                {/* Active Toggle */}
 
                 <button
                   type="button"
                   onClick={() => toggleAppliance(item.id)}
                   title={item.active ? "Disable appliance" : "Enable appliance"}
-                  className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border text-xs font-bold transition ${
+                  className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border transition ${
                     item.active
                       ? "border-amber-500 bg-amber-500 text-white"
                       : "border-border bg-background text-muted-foreground"
                   }`}
                 >
-                  {item.active && <Check size={14} strokeWidth={3} />}
+                  {item.active && <Check size={15} strokeWidth={3} />}
                 </button>
 
-                {/* Icon */}
+                {/* Appliance Icon */}
 
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-base text-amber-600">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-amber-600">
                   {React.cloneElement(item.icon as React.ReactElement, {
-                    size: 17,
+                    size: 19,
                     strokeWidth: 2,
                   })}
                 </div>
 
-                {/* Name */}
+                {/* Appliance Name */}
 
-                <div className="min-w-0 flex-1">
-                  {editingId === item.id ? (
-                    <input
-                      type="text"
-                      value={item.name}
-                      onChange={(event) =>
-                        updateAppliance(item.id, "name", event.target.value)
-                      }
-                      onBlur={() => setEditingId(null)}
-                      autoFocus
-                      className="h-6 w-full rounded-md border border-amber-400 bg-background px-1 text-xs font-semibold outline-none"
-                    />
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => setEditingId(item.id)}
-                      title="Click to edit appliance name"
-                      className="block max-w-full truncate text-left text-xs font-semibold text-foreground hover:text-amber-600"
-                    >
-                      {item.name}
-                    </button>
-                  )}
+                <div className="min-w-0 self-center text-left">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEditingId(item.id);
+                      setEditingName(item.name);
+                    }}
+                    title="Click to edit appliance name"
+                    className="block w-full whitespace-normal break-words text-left text-xs text-[8px] font-bold leading-5 text-foreground hover:text-amber-600  [overflow-wrap:anywhere]"
+                  >
+                    {item.name}
+                  </button>
 
-                  <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                  <div className="mt-1 flex items-center gap-1 text-left">
                     <input
                       type="number"
                       min="1"
@@ -653,96 +650,195 @@ const HomeAppliances: React.FC<HomeAppliancesProps> = ({ onLoadChange }) => {
                       onChange={(event) =>
                         updateAppliance(item.id, "power", event.target.value)
                       }
-                      className="w-12 border-b border-transparent bg-transparent text-[10px] text-muted-foreground outline-none focus:border-amber-500"
+                      className="w-14 border-b border-transparent bg-transparent text-left text-[10px] leading-4 text-muted-foreground outline-none focus:border-amber-500"
                     />
-                    W each
-                  </div>
-                </div>
-
-                {/* Quantity */}
-
-                <div className="shrink-0">
-                  <span className="mb-1 block text-[9px] text-muted-foreground">
-                    Qty
-                  </span>
-
-                  <div className="flex items-center">
-                    <button
-                      type="button"
-                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className="flex h-6 w-6 items-center justify-center rounded-l-md border border-border bg-background text-xs hover:bg-secondary"
-                    >
-                      −
-                    </button>
-
-                    <span className="flex h-6 min-w-6 items-center justify-center border-y border-border bg-background px-1 text-[10px]">
-                      {item.quantity}
-                    </span>
-
-                    <button
-                      type="button"
-                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className="flex h-6 w-6 items-center justify-center rounded-r-md border border-border bg-background text-xs hover:bg-secondary"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-
-                {/* Hours */}
-
-                <div className="hidden shrink-0 sm:block">
-                  <span className="mb-1 block text-[9px] text-muted-foreground">
-                    Hours/day
-                  </span>
-
-                  <div className="flex items-center">
-                    <input
-                      type="number"
-                      min="0"
-                      max="24"
-                      step="0.5"
-                      value={item.hours}
-                      onChange={(event) =>
-                        updateHours(item.id, Number(event.target.value))
-                      }
-                      className="h-6 w-12 rounded-l-md border border-border bg-background px-1 text-center text-[10px] outline-none focus:border-amber-500"
-                    />
-
-                    <span className="flex h-6 items-center rounded-r-md border-y border-r border-border bg-secondary px-1.5 text-[9px] text-muted-foreground">
-                      h
+                    <span className="whitespace-nowrap text-[8px] text-muted-foreground">
+                      W
                     </span>
                   </div>
                 </div>
 
-                {/* Daily */}
+                {/* Mobile Controls Row */}
 
-                <div className="w-12 shrink-0 text-right">
-                  <span className="block text-[9px] text-muted-foreground">
-                    Daily
-                  </span>
+                <div className="col-span-3 flex min-w-0 items-center justify-between gap-2 border-t border-border/70 pt-2 lg:col-span-1 lg:justify-end lg:gap-1 lg:border-0 lg:pt-0">
+                  {/* Quantity */}
 
-                  <span className="text-[10px] font-semibold text-foreground">
-                    {dailyUsage.toFixed(1)}
-                  </span>
+                  <div className="shrink-0 text-center">
+                    <span className="mb-1 block text-[9px] font-medium text-muted-foreground">
+                      Qty
+                    </span>
 
-                  <span className="ml-0.5 text-[9px] text-muted-foreground">
-                    kWh
-                  </span>
+                    <div className="flex items-center">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          updateQuantity(item.id, item.quantity - 1)
+                        }
+                        className="flex h-6 w-6 items-center justify-center rounded-l-md border border-border bg-background text-xs hover:bg-secondary"
+                      >
+                        −
+                      </button>
+
+                      <span className="flex h-6 min-w-7 items-center justify-center border-y border-border bg-background px-1 text-xs lg:h-5 lg:min-w-6 lg:text-[10px]">
+                        {item.quantity}
+                      </span>
+
+                      <button
+                        type="button"
+                        onClick={() =>
+                          updateQuantity(item.id, item.quantity + 1)
+                        }
+                        className="flex h-6 w-6 items-center justify-center rounded-r-md border border-border bg-background text-xs hover:bg-secondary"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Hours */}
+
+                  <div className="shrink-0 text-center">
+                    <span className="mb-1 block text-[9px] font-medium text-muted-foreground">
+                      Hours/day
+                    </span>
+
+                    <div className="flex items-center">
+                      <input
+                        type="number"
+                        min="0"
+                        max="24"
+                        step="0.5"
+                        value={item.hours}
+                        onChange={(event) =>
+                          updateHours(item.id, Number(event.target.value))
+                        }
+                        className="h-7 w-12 rounded-l-md border border-border bg-background px-1 text-center text-xs outline-none focus:border-amber-500"
+                      />
+
+                      <span className="flex h-7 items-center rounded-r-md border-y border-r border-border bg-secondary px-2 text-[10px] text-muted-foreground">
+                        hrs
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Daily Usage */}
+
+                  <div className="min-w-[55px] shrink-0 text-center sm:text-right">
+                    <span className="mb-1 block text-[9px] font-medium text-muted-foreground">
+                      Daily
+                    </span>
+
+                    <span className="text-xs font-bold text-foreground">
+                      {dailyUsage.toFixed(1)}
+                    </span>
+
+                    <span className="ml-1 text-[9px] text-muted-foreground">
+                      kWh
+                    </span>
+                  </div>
+
+                  {/* Delete */}
+
+                  <button
+                    type="button"
+                    onClick={() => deleteAppliance(item.id)}
+                    title={`Delete ${item.name}`}
+                    aria-label={`Delete ${item.name}`}
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-red-200 bg-red-50 text-red-500 transition hover:border-red-400 hover:bg-red-500 hover:text-white"
+                  >
+                    <X size={15} strokeWidth={2.5} />
+                  </button>
                 </div>
-
-                {/* Delete */}
-
-                <button
-                  type="button"
-                  onClick={() => deleteAppliance(item.id)}
-                  title={`Delete ${item.name}`}
-                  aria-label={`Delete ${item.name}`}
-                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-red-200 bg-red-50 text-red-500 transition hover:border-red-400 hover:bg-red-500 hover:text-white"
-                >
-                  <X size={14} strokeWidth={2.5} />
-                </button>
               </div>
+
+              {/* Edit Name Popup */}
+
+              {editingId === item.id && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4">
+                  <div
+                    className="w-full max-w-sm rounded-2xl border border-border bg-background p-5 shadow-2xl"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Edit appliance name"
+                  >
+                    <div className="mb-4 flex items-center justify-between">
+                      <h4 className="text-sm font-bold text-foreground">
+                        Edit Appliance Name
+                      </h4>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setEditingId(null);
+                          setEditingName("");
+                        }}
+                        className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary hover:text-foreground"
+                      >
+                        <X size={17} />
+                      </button>
+                    </div>
+
+                    <label className="mb-2 block text-xs font-semibold text-muted-foreground">
+                      Appliance Name
+                    </label>
+
+                    <input
+                      type="text"
+                      value={editingName}
+                      onChange={(event) => setEditingName(event.target.value)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter") {
+                          const name = editingName.trim();
+
+                          if (name) {
+                            updateAppliance(item.id, "name", name);
+                            setEditingId(null);
+                            setEditingName("");
+                          }
+                        }
+
+                        if (event.key === "Escape") {
+                          setEditingId(null);
+                          setEditingName("");
+                        }
+                      }}
+                      autoFocus
+                      className="h-11 w-full rounded-lg border border-border bg-background px-3 text-sm text-foreground outline-none transition focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20"
+                      placeholder="Enter appliance name"
+                    />
+
+                    <div className="mt-4 flex gap-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setEditingId(null);
+                          setEditingName("");
+                        }}
+                        className="flex-1 rounded-lg border border-border px-3 py-2.5 text-xs font-semibold text-muted-foreground transition hover:bg-secondary"
+                      >
+                        Cancel
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const name = editingName.trim();
+
+                          if (!name) return;
+
+                          updateAppliance(item.id, "name", name);
+                          setEditingId(null);
+                          setEditingName("");
+                        }}
+                        disabled={!editingName.trim()}
+                        className="flex-1 rounded-lg bg-amber-500 px-3 py-2.5 text-xs font-bold text-white transition hover:bg-amber-600 disabled:cursor-not-allowed disabled:opacity-50"
+                      >
+                        Save Changes
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           );
         })}
