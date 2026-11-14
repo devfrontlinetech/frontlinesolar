@@ -587,7 +587,7 @@ const HomeAppliances: React.FC<HomeAppliancesProps> = ({ onLoadChange }) => {
       <div className="space-y-3">
         {categoryAppliances.map((item) => {
           const dailyUsage = (item.power * item.quantity * item.hours) / 1000;
-
+ 
           return (
             <div
               key={item.id}
